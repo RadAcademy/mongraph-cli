@@ -1,12 +1,12 @@
 {
   "name": "mongraph-cli",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Mongoose / Grpahql file generator",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
     "mg": "./index.js"
-  },
+  }, 
   "scripts": {},
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
     "commander": "^2.15.1",
     "eslint": "^4.19.1",
     "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.3"
   }
 }

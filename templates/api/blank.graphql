@@ -1,0 +1,15 @@
+type {{blank_c}} {
+  _id: String
+}
+
+type Query {
+  {{blank}}ById(_id: String!): {{blank_c}}
+}
+
+type Mutation {
+  create{{blank_c}}(
+    email
+    password
+  ): {{blank_c}}
+}
+
