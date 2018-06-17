@@ -1,18 +1,17 @@
-#!/usr/bin/env node
+import * as fs from 'fs';
+// import * as path from 'path';
 
-import * as commander from 'commander';
-import { generate } from './index';
+export const generate = (name: string) => {
 
-commander
-  .version('1.0.0')
-  .description('Mongoose / Graphql file generator')
+  const CURR_DIR      = process.cwd();
+  const templatesPath = `${__dirname}/templates/`;
 
-commander
-  .command('generate <name>')
-  .alias('g')
-  .description('Add new Mongoose Model & Interface, Graphql type & resolvers.')
-  .action((name) => {
-    generate(name)
-  })
-
-commander.parse(process.argv);
+  try {
+    fs.mkdirSync('api');
+    fs.mkdirSync('models');
+  } catch (error) {
+    console.info('Folders Exist')
+  } 
+  
+   console.info(name, CURR_DIR, templatesPath)
+};
