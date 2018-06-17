@@ -1,0 +1,21 @@
+{
+  "name": "mongraph-cli",
+  "version": "0.0.0",
+  "description": "Mongoose/ Grpahql file generator",
+  "main": "index.js",
+  "bin": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RadAcademy/mongraph-cli.git"
+  },
+  "author": "Rad Academy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RadAcademy/mongraph-cli/issues"
+  },
+  "homepage": "https://github.com/RadAcademy/mongraph-cli#readme",
+  "dependencies": {
+    "commander": "^2.15.1"
+  }
+}
