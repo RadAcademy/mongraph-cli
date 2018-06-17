@@ -1,9 +1,12 @@
 {
   "name": "mongraph-cli",
   "version": "0.0.0",
-  "description": "Mongoose/ Grpahql file generator",
-  "main": "index.js",
-  "bin": {},
+  "description": "Mongoose / Grpahql file generator",
+  "main": "commands.js",
+  "preferGlobal": true,
+  "bin": {
+    "mg": "./commands.js"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
@@ -16,6 +19,8 @@
   },
   "homepage": "https://github.com/RadAcademy/mongraph-cli#readme",
   "dependencies": {
-    "commander": "^2.15.1"
+    "commander": "^2.15.1",
+    "eslint": "^4.19.1",
+    "typescript": "^2.9.2"
   }
 }
