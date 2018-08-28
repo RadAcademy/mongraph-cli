@@ -8,11 +8,11 @@ commander
   .description('Mongoose / Graphql file generator')
 
 commander
-  .command('generate <name>')
+  .command('generate <name> <values>')
   .alias('g')
   .description('Add new Mongoose Model & Interface, Graphql type & resolvers.')
-  .action((name) => {
-    generate(name)
+  .action((name, values) => {
+    generate(name, values)
   })
 
 commander.parse(process.argv);

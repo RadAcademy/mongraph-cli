@@ -1,26 +1,24 @@
-import * as bcrypt from 'bcrypt';
-import {{blank_c}}Model from '../../models/{{blank}}/{{blank}}.model';
-import { create{{blank_c}}Error } from '../../errors';
+import {{name_c}}Model from '../../models/{{name}}/{{name}}.model';
 
 export const resolver = {
 
   Query: {
-    {{blank}}ById: (root, {_id}) => {
-      return {{blank_c}}Model.findOne({_id: _id});
-    }
+    {{name}}ById: (root, {_id}) => {{name_c}}Model.findOne({_id: _id}),
+    all{{name_c}}s: (root)        => {{name_c}}Model.find({}).sort('-createdOn')
   },
 
   Mutation: {
-    create{{blank_c}}: async (root, {email, password}) => {
 
-      let hashedPassword = '';
-      if (password) { hashedPassword = await bcrypt.hash(password, 12); }
-
-      const {{blank}} = new {{blank_c}}Model({
-        email: email,
-        password: password
-      });
-      return {{blank}}.save().catch(err => new create{{blank_c}}Error({message: err.message}));
+    save{{name_c}}: (root, { {{name}} }) => {
+      return new {{name_c}}Model({
+        {{#each values}}
+        {{this.name}}: {{../name}}.{{this.name}},
+        {{/each}}
+      }).save().catch(err => new Error(err.message));
+    },
+    update{{name_c}}: (root, {{{name}}}) => {
+      return {{name_c}}Model.findByIdAndUpdate({_id: {{name}}._id}, { ...{{name}} }).catch(err => new Error(err.message));
     }
+
   }
 };

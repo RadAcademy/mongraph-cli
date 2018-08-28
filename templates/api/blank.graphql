@@ -1,15 +1,23 @@
-type {{blank_c}} {
+type {{name_c}} {
   _id: String
+  {{#each values}}
+  {{this.name}}: {{this.type_gql}}
+  {{/each}}
 }
 
 type Query {
-  {{blank}}ById(_id: String!): {{blank_c}}
+  {{name}}ById(_id: String!): {{name_c}}
+  all{{name_c}}s: [{{name_c}}]
 }
 
 type Mutation {
-  create{{blank_c}}(
-    email
-    password
-  ): {{blank_c}}
+  save{{name_c}}({{name}}: {{name_c}}Input!): {{name_c}}
+  update{{name_c}}({{name}}: {{name_c}}Input!): {{name_c}}
 }
 
+input {{name_c}}Input {
+  _id: String
+  {{#each values}}
+  {{this.name}}: {{this.type_gql}}
+  {{/each}}
+}

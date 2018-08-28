@@ -1,0 +1,5 @@
+mutation update{{name_c}}(${{name}}: {{name_c}}Input!){
+  update{{name_c}}({{name}}: ${{name}}){
+    _id
+  }
+}

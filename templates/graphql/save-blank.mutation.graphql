@@ -1,0 +1,5 @@
+mutation save{{name_c}}(${{name}}: {{name_c}}Input!){
+  save{{name_c}}({{name}}: ${{name}}){
+    _id
+  }
+}

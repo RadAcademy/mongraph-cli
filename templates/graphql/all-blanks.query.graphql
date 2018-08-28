@@ -1,0 +1,8 @@
+query all{{name_c}}s{
+  all{{name_c}}s{
+    _id
+    {{#each values}}
+    {{this.name}}
+    {{/each}}
+  }
+}

@@ -7,10 +7,10 @@ commander
     .version('1.0.0')
     .description('Mongoose / Graphql file generator');
 commander
-    .command('generate <name>')
+    .command('generate <name> <values>')
     .alias('g')
     .description('Add new Mongoose Model & Interface, Graphql type & resolvers.')
-    .action(function (name) {
-    commands_1.generate(name);
+    .action(function (name, values) {
+    commands_1.generate(name, values);
 });
 commander.parse(process.argv);
