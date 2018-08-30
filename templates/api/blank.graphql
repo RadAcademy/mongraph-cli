@@ -1,22 +1,30 @@
 type {{name_c}} {
   _id: String
+  createdOn: Date #Virtual
+  updatedOn: Date #Virtual
   {{#each values}}
   {{this.name}}: {{this.type_gql}}
   {{/each}}
 }
 
-type Query {
+extend type Query {
   {{name}}ById(_id: String!): {{name_c}}
   all{{name_c}}s: [{{name_c}}]
 }
 
-type Mutation {
-  save{{name_c}}({{name}}: {{name_c}}Input!): {{name_c}}
-  update{{name_c}}({{name}}: {{name_c}}Input!): {{name_c}}
+extend type Mutation {
+  save{{name_c}}({{name}}: {{name_c}}SaveInput!): {{name_c}}
+  update{{name_c}}({{name}}: {{name_c}}UpdateInput!): {{name_c}}
 }
 
-input {{name_c}}Input {
-  _id: String
+input {{name_c}}SaveInput {
+  {{#each values}}
+  {{this.name}}: {{this.type_gql}}
+  {{/each}}
+}
+
+input {{name_c}}UpdateInput {
+  _id: String!
   {{#each values}}
   {{this.name}}: {{this.type_gql}}
   {{/each}}

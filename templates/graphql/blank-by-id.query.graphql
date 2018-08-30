@@ -1,4 +1,4 @@
-query {{name}}ById($_id: String) {
+query {{name}}ById($_id: String!) {
   {{name}}ById(_id: $_id) {
     _id
     {{#each values}}
